@@ -1,5 +1,5 @@
 .add-product-container {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   padding: 2rem 1rem;
@@ -7,7 +7,7 @@
 }
 
 .add-product-card {
-  background: rgb(48, 47, 47);
+  background: #c7d5d9;
   max-width: 600px;
   width: 100%;
   padding: 2.5rem;
@@ -114,38 +114,6 @@ textarea {
   color: #2e7d32;
   padding: 1rem;
   border-radius: 8px;
-  text-align: center;
-}
-
-/* Add these classes to your existing AddProduct.css */
-
-.input-error {
-  border-color: #d32f2f !important;
-}
-
-.field-error {
-  color: #d32f2f;
-  font-size: 0.85rem;
-  margin-top: 0.35rem;
-  display: block;
-}
-
-.error-message.global {
-  background: #ffebee;
-  color: #c62828;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  white-space: pre-line; /* so \n newlines are respected */
-}
-
-.success-message {
-  background: #e8f5e9;
-  color: #2e7d32;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
   text-align: center;
 }
 

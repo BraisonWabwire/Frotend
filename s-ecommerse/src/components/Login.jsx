@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../api/auth';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from './Navbar';
 import './Login.css'; // your existing styles
 
 export default function Login() {
@@ -55,6 +56,8 @@ export default function Login() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="login-container">
       <div className="login-card">
         <h2>Welcome Back</h2>
@@ -113,5 +116,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }

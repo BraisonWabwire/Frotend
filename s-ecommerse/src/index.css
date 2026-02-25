@@ -8,6 +8,12 @@
   /* Background color */
   --color-background: #EDF7F6;
 
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-border: #e5e7eb;
+  --color-card-bg: #ffffff;
+
 }
 
 /* Apply globally */

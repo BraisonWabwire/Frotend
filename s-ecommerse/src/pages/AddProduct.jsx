@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import API from '../api/axiosInstance';
 import './AddProduct.css';
+import Navbar from '../components/Navbar';
 
 export default function AddProduct() {
   const { user } = useAuth();
@@ -181,6 +182,8 @@ export default function AddProduct() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="add-product-container">
       <div className="add-product-card">
         <h2>Add New Product</h2>
@@ -294,5 +297,6 @@ export default function AddProduct() {
         </form>
       </div>
     </div>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { register } from '../api/auth';
 import { useAuth } from '../contexts/AuthContext';
+import Navbar from './Navbar';
 import './Register.css'; // optional styling file (similar to Login.css)
 
 export default function Register() {
@@ -63,6 +64,8 @@ export default function Register() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="register-container">
       <div className="register-card">
         <h2>Create Your Account</h2>
@@ -177,5 +180,6 @@ export default function Register() {
         </div>
       </div>
     </div>
+    </>
   );
 }
