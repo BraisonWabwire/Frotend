@@ -1,0 +1,342 @@
+.navbar {
+  background-color: var(--color-background);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Google Sans', sans-serif;
+  width: 100%;
+  height: 25vh; /* Set navbar height to 25vh */
+  min-height: 80px; /* Minimum height for smaller screens */
+  max-height: 150px; /* Maximum height to prevent it from getting too tall */
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Take full height of navbar */
+}
+
+/* Logo styles */
+.logo {
+  font-size: 2.2rem; /* Slightly larger to match the taller navbar */
+  font-weight: 700;
+  color: var(--color-text-large);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logo-accent {
+  color: var(--color-text-medium);
+  font-weight: 500;
+  background: linear-gradient(135deg, var(--color-text-medium) 0%, var(--color-text-small) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 30px;
+  height: 24px;
+  justify-content: space-between;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-text-medium);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Navigation menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Take full height */
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  align-items: center;
+  height: 100%; /* Take full height */
+}
+
+/* Navigation links */
+.nav-list li a {
+  color: var(--color-text-medium);
+  text-decoration: none;
+  font-size: 1.1rem; /* Slightly larger font */
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Take full height */
+}
+
+.nav-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px; /* Thicker underline for better visibility */
+  background-color: var(--color-text-large);
+  transition: width 0.3s ease;
+}
+
+.nav-list li a:hover {
+  color: var(--color-text-large);
+}
+
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+.nav-list li a.active {
+  color: var(--color-text-large);
+  font-weight: 600;
+}
+
+.nav-list li a.active::after {
+  width: 100%;
+}
+
+/* Register link special styling */
+.register-link {
+  background-color: var(--color-text-large);
+  color: white !important;
+  padding: 0.6rem 1.4rem !important; /* Slightly larger padding */
+  border-radius: 50px;
+  transition: all 0.3s ease !important;
+  border: 2px solid transparent;
+  height: auto !important; /* Override the height inheritance */
+}
+
+.register-link::after {
+  display: none !important;
+}
+
+.register-link:hover {
+  background-color: transparent;
+  color: var(--color-text-large) !important;
+  border-color: var(--color-text-large);
+}
+
+/* User section styles */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(80, 80, 129, 0.2);
+  height: 100%; /* Take full height */
+}
+
+.username {
+  color: var(--color-text-large);
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: rgba(15, 14, 71, 0.05);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: var(--color-text-small);
+  border: 1px solid var(--color-text-small);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Google Sans', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.logout-button:hover {
+  background-color: var(--color-text-small);
+  color: white;
+  border-color: var(--color-text-small);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 20vh; /* Slightly smaller on mobile */
+    min-height: 70px;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh; /* Full viewport height for mobile menu */
+    background-color: var(--color-background);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5rem 2rem 2rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: flex-start;
+    height: auto; /* Reset height for mobile */
+  }
+
+  .nav-list li {
+    width: 100%;
+  }
+
+  .nav-list li a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    width: 100%;
+    height: auto; /* Reset height for mobile */
+  }
+
+  .nav-list li a::after {
+    bottom: 0.5rem;
+    height: 2px; /* Back to normal thickness on mobile */
+  }
+
+  .register-link {
+    display: inline-block !important;
+    width: auto !important;
+    margin-top: 0.5rem;
+  }
+
+  .user-section {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    height: auto; /* Reset height for mobile */
+  }
+
+  .username {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logout-button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  .navbar {
+    height: 18vh;
+    min-height: 60px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-menu {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* For larger screens, ensure menu is always visible */
+@media screen and (min-width: 769px) {
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    width: auto;
+    height: 100%; /* Take full height */
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Landscape mode for mobile */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .navbar {
+    height: 20vh;
+    min-height: 60px;
+  }
+}

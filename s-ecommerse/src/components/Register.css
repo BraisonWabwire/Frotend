@@ -1,0 +1,179 @@
+/* src/styles/Register.css */
+
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-color: var(--color-background);
+}
+
+.register-card {
+  background-color: #0f0e47;
+  width: 100%;
+  max-width: 560px;                /* slightly wider for 2-column layout */
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 14, 71, 0.35);
+  color: #f0f0ff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+h2 {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: rgba(240, 240, 255, 0.75);
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+/* ────────────────────────────────────────────────
+   Grid Form Layout
+───────────────────────────────────────────────── */
+
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;     /* 2 equal columns */
+  gap: 1.4rem 1.8rem;                 /* row gap / column gap */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+/* Full-width items */
+.form-group.full-width,
+.register-button,
+.error-message,
+.login-prompt {
+  grid-column: 1 / -1;                /* span both columns */
+}
+
+/* ────────────────────────────────────────────────
+   Labels & Inputs
+───────────────────────────────────────────────── */
+
+label {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: rgba(240, 240, 255, 0.9);
+}
+
+input,
+select {
+  padding: 0.95rem 1.15rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #00a896;
+  box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.25);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.help-text {
+  font-size: 0.84rem;
+  color: rgba(240, 240, 255, 0.65);
+  margin-top: 0.35rem;
+}
+
+/* ────────────────────────────────────────────────
+   Button
+───────────────────────────────────────────────── */
+
+.register-button {
+  background-color: #00a896;
+  color: white;
+  border: none;
+  padding: 1.05rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 0.8rem;
+}
+
+.register-button:hover:not(:disabled) {
+  background-color: #00897b;
+  transform: translateY(-1px);
+}
+
+.register-button:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+}
+
+/* ────────────────────────────────────────────────
+   Error & Links
+───────────────────────────────────────────────── */
+
+.error-message {
+  background-color: rgba(211, 47, 47, 0.18);
+  color: #ffcccc;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.96rem;
+  border: 1px solid rgba(211, 47, 47, 0.35);
+}
+
+.login-prompt {
+  text-align: center;
+  font-size: 0.98rem;
+  color: rgba(240, 240, 255, 0.75);
+  margin-top: 1.5rem;
+}
+
+.login-link {
+  color: #00a896;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: #00c4a8;
+}
+
+/* ────────────────────────────────────────────────
+   Mobile – collapse to single column
+───────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .register-form {
+    grid-template-columns: 1fr;       /* 1 column on small screens */
+    gap: 1.4rem;
+  }
+
+  .register-card {
+    padding: 2rem 1.6rem;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+}
