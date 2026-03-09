@@ -6,10 +6,12 @@ import Index from './pages';
 import Login from './components/Login';
 import Register from './components/Register';
 import AddProduct from './pages/AddProduct';
+import AddedProducts from './pages/AddedProducts';
 import OwnerDashboard from './pages/OwnerDashboard';
 import CustomerDashboard from './pages/CustomerDashboard';
 import Products from './pages/products';
 import Cart from './pages/Cart';
+
 
 // Components
 import Navbar from './components/Navbar';
@@ -25,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/new" element={<AddProduct />} />
+          <Route path="/my-products" element={<AddedProducts />} />
           <Route path="/Owner/dashboard" element={<OwnerDashboard />} />
           <Route path="/Customer/dashboard" element={<CustomerDashboard />} />
           <Route path="/cart" element={<Cart />} />

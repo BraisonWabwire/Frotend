@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../api/auth';
 import { useAuth } from '../contexts/AuthContext';
-import Navbar from './Navbar';
-import './Login.css'; // your existing styles
+import Navbar from '../components/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import './Login.css';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -13,6 +15,9 @@ export default function Login() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Password visibility state
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const { setUser } = useAuth();
@@ -40,7 +45,7 @@ export default function Login() {
       } else if (user.role === 'customer') {
         navigate('/customer/dashboard');
       } else {
-        // fallback – in case role is missing or invalid
+        // fallback
         navigate('/products');
       }
     } catch (err) {
@@ -57,65 +62,77 @@ export default function Login() {
 
   return (
     <>
-    <Navbar/>
-    <div className="login-container">
-      <div className="login-card">
-        <h2>Welcome Back</h2>
-        <p className="subtitle">Sign in to manage your shop or browse products</p>
+      <Navbar />
 
-        {error && (
-          <div className="error-message">
-            {error}
+      <div className="login-container">
+        <div className="login-card">
+          <h2>Welcome Back</h2>
+          <p className="subtitle">Sign in to manage your shop or browse products</p>
+
+          {error && (
+            <div className="error-message">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="e.g. mama.mboga.ke"
+                required
+                autoFocus
+              />
+            </div>
+
+            {/* Password with eye icon */}
+            <div className="form-group password-group">
+              <label htmlFor="password">Password</label>
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  required
+                />
+                <button
+                  type="button"
+                  className="eye-btn"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="login-button"
+              disabled={loading}
+            >
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+          </form>
+
+          <div className="register-prompt">
+            <p>
+              Don't have an account?{' '}
+              <Link to="/register" className="register-link">
+                Create one now
+              </Link>
+            </p>
           </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="e.g. mama.mboga.ke"
-              required
-              autoFocus
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="••••••••"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="login-button"
-            disabled={loading}
-          >
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
-
-        <div className="register-prompt">
-          <p>
-            Don't have an account?{' '}
-            <Link to="/register" className="register-link">
-              Create one now
-            </Link>
-          </p>
         </div>
       </div>
-    </div>
     </>
   );
 }

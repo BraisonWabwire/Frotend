@@ -5,6 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import API from '../api/axiosInstance';
 import './AddProduct.css';
 import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 
 export default function AddProduct() {
   const { user } = useAuth();
@@ -184,6 +185,7 @@ export default function AddProduct() {
   return (
     <>
     <Navbar/>
+    <Sidebar/>
     <div className="add-product-container">
       <div className="add-product-card">
         <h2>Add New Product</h2>

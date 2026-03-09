@@ -198,6 +198,45 @@
   background-color: #00a896;
 }
 
+/* Password field wrapper */
+.password-group {
+  position: relative;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3.2rem; /* Make space for the eye icon */
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.eye-btn:hover {
+  color: #0f0e47;
+}
+
+/* Optional: eye icon gets primary color when field is focused */
+.password-wrapper input:focus + .eye-btn {
+  color: #0f0e47;
+}
+
 .register-link::after {
   content: '';
   position: absolute;

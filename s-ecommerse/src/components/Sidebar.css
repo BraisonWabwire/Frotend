@@ -1,0 +1,131 @@
+/* src/components/Sidebar.css */
+
+/* Sidebar base */
+.sidebar {
+  width: 0;
+  background: linear-gradient(180deg, #0f0e47 0%, #1a1a5e 100%);
+  color: #f0f0ff;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.35);
+}
+
+.sidebar.open {
+  width: 260px;
+}
+
+/* Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #00a896;
+  background: rgba(255, 255, 255, 0.08);
+  transform: rotate(-180deg);
+}
+
+/* Navigation */
+.sidebar-nav {
+  padding: 1.2rem 0;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  display: flex;
+  align-items: center;
+  padding: 1.1rem 1.6rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(240, 240, 255, 0.88);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  gap: 14px;
+}
+
+.sidebar-nav li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  padding-left: 1.9rem;
+}
+
+.sidebar-nav li.active {
+  background: rgba(0, 168, 150, 0.18);
+  color: #00a896;
+  border-left: 4px solid #00a896;
+  font-weight: 600;
+}
+
+/* Icons */
+.sidebar-nav svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-nav li:hover svg {
+  transform: scale(1.15);
+}
+
+/* Logout item */
+.logout-item {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
+}
+
+.logout-item,
+.logout-item:hover {
+  color: #ff6b6b;
+}
+
+.logout-item:hover {
+  background: rgba(255, 107, 107, 0.08);
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}

@@ -126,6 +126,44 @@ select:focus {
   cursor: not-allowed;
 }
 
+/* Password field wrapper */
+.password-group {
+  position: relative;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 3.2rem; /* space for eye icon */
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.2s;
+}
+
+.eye-btn:hover {
+  color: #0f0e47;
+}
+
+/* Optional: make eye icon more visible on focus */
+.password-wrapper input:focus + .eye-btn {
+  color: #0f0e47;
+}
 /* ────────────────────────────────────────────────
    Error & Links
 ───────────────────────────────────────────────── */
